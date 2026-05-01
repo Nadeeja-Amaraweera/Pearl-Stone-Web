@@ -446,16 +446,6 @@
             btn.disabled = false;
             btn.classList.remove("opacity-75", "cursor-not-allowed");
           });
-        sendWhatsAppMessage(formData);
-      }
-      function sendWhatsAppMessage(formData) {
-
-        let phone = "94764823793"; // include country code, no + or 0
-        let message = `[ Pearl stone inquery ] \n First Name: ${formData.get("First Name")} \n Last Name: ${formData.get("Last Name")} \n Email Address: ${formData.get("Email Address")} \n Phone Number: ${formData.get("Phone Number")} \n Interested Sector: ${formData.get("Interested Sector")} \n Message: ${formData.get("Message")}`;
-
-        let url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-
-        window.open(url, "_blank");
       }
     </script>
   </body>

@@ -9,6 +9,28 @@ const observer = new IntersectionObserver((entries) => {
 });
 sections.forEach(sec => observer.observe(sec));
 
+const leftCards = document.querySelectorAll('.fade-left');
+
+const observer2 = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+});
+leftCards.forEach(sec => observer2.observe(sec));
+
+const rightCards = document.querySelectorAll('.fade-right');
+
+const observer3 = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+});
+rightCards.forEach(sec => observer3.observe(sec));
+
 // Mobile Menu Toggle
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');

@@ -8,3 +8,23 @@
     opacity: 1;
     transform: translateY(0);
 }
+
+.fade-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: all 1.5s ease;
+}
+.fade-left.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: all 1.5s ease;
+}
+.fade-right.show {
+    opacity: 1;
+    transform: translateX(0);
+}
