@@ -50,6 +50,9 @@
             background-position: center;
         }
     </style>
+    
+    <link rel="stylesheet" href="fade.css">
+
 </head>
 
 <body class="font-sans text-gray-800 antialiased bg-gray-50 flex flex-col min-h-screen">
@@ -112,7 +115,7 @@
     </header>
 
     <!-- Main Content -->
-    <main class="py-20 flex-grow relative overflow-hidden">
+    <main class="py-20 flex-grow relative overflow-hidden fade-section">
         <!-- Bubbles Container -->
         <div class="bubbles-container absolute inset-0 pointer-events-none z-0"></div>
 
@@ -176,10 +179,10 @@
                 </div>
             </div>
 
-            <div class="mt-32 text-center max-w-4xl mx-auto">
+            <div class="mt-32 text-center max-w-4xl mx-auto fade-section">
                 <h3 class="font-heading text-3xl font-bold text-brand-900 mb-12">Core Values</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+                    <div class="p-6 bg-white rounded-2xl shadow-sm border border-gray-100 fade-section">
                         <div
                             class="w-16 h-16 mx-auto bg-brand-50 text-brand-600 rounded-full flex items-center justify-center text-2xl mb-4">
                             <i class="fas fa-handshake"></i>
@@ -188,7 +191,7 @@
                         <p class="text-gray-600 text-sm">We operate with complete transparency and honesty in all our
                             dealings.</p>
                     </div>
-                    <div class="p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+                    <div class="p-6 bg-white rounded-2xl shadow-sm border border-gray-100 fade-section">
                         <div
                             class="w-16 h-16 mx-auto bg-brand-50 text-brand-600 rounded-full flex items-center justify-center text-2xl mb-4">
                             <i class="fas fa-heart"></i>
@@ -197,7 +200,7 @@
                         <p class="text-gray-600 text-sm">We genuinely care about the well-being and success of our
                             candidates.</p>
                     </div>
-                    <div class="p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+                    <div class="p-6 bg-white rounded-2xl shadow-sm border border-gray-100 fade-section">
                         <div
                             class="w-16 h-16 mx-auto bg-brand-50 text-brand-600 rounded-full flex items-center justify-center text-2xl mb-4">
                             <i class="fas fa-star"></i>
@@ -212,7 +215,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-16 mt-auto border-t-4 border-brand-500">
+    <footer class="bg-gray-900 text-gray-400 py-16 mt-auto border-t-4 border-brand-500 fade-section">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
                 <div class="col-span-1 md:col-span-1">
