@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Pearl Stone Agency</title>
+    <meta name="description" content="Explore premium job opportunities in Israel through Pearl Stone Agency. Caregiving and Agriculture sectors.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            800: '#1e40af',
+                            900: '#172554',
+                            accent: '#3b82f6',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .glass-effect {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            border-bottom: none;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+        .page-header {
+            background-image: linear-gradient(rgba(23, 37, 84, 0.85), rgba(23, 37, 84, 0.95)), url('https://images.unsplash.com/photo-1541888081622-1ca7569bc003?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased bg-gray-50 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-transparent transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center min-h-[70px] md:min-h-[90px] py-1">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="block relative z-50 group">
+                        <div class="absolute inset-2 bg-white/50 blur-xl rounded-[100%] scale-150 -z-10 transition-all duration-500 group-hover:bg-white/60"></div>
+                        <img src="logo.png" alt="Pearl Stone Logo" class="relative h-16 sm:h-20 md:h-[80px] lg:h-[95px] w-auto transform transition-transform duration-500 group-hover:scale-105 drop-shadow-[0_0_12px_rgba(255,255,255,0.9)]">
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-white/80 hover:text-white font-medium transition-colors">Home</a>
+                    <a href="about.html" class="text-white/80 hover:text-white font-medium transition-colors">About Us</a>
+                    <a href="services.html" class="text-white font-bold transition-colors drop-shadow-md">Our Services</a>
+                    <a href="contact.html" class="bg-brand-600 hover:bg-brand-500 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-[0_0_15px_rgba(37,99,235,0.3)] hover:shadow-[0_0_25px_rgba(37,99,235,0.5)]">Contact Us</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-blue-200 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white absolute w-full border-t border-gray-100 shadow-xl">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="index.html" class="block px-3 py-3 text-gray-600 hover:text-brand-600 font-medium border-b border-gray-50">Home</a>
+                <a href="about.html" class="block px-3 py-3 text-gray-600 hover:text-brand-600 font-medium border-b border-gray-50">About Us</a>
+                <a href="services.html" class="block px-3 py-3 text-brand-600 font-bold border-b border-gray-50">Our Services</a>
+                <a href="contact.html" class="block px-3 py-3 text-gray-600 hover:text-brand-600 font-medium">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header pt-40 pb-24 text-center relative overflow-hidden">
+        <!-- Spider Web Canvas -->
+        <canvas id="hero-canvas" class="absolute inset-0 w-full h-full z-0 pointer-events-none"></canvas>
+        
+        <!-- Animated Abstract Shapes -->
+        <div class="absolute top-0 right-10 w-72 h-72 bg-brand-500 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-pulse"></div>
+        <div class="absolute bottom-0 left-10 w-64 h-64 bg-white rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-pulse" style="animation-delay: 2s;"></div>
+
+        <div class="max-w-4xl mx-auto px-4 relative z-10 flex flex-col items-center">
+            <span class="inline-block py-1 px-4 rounded-full bg-brand-800/60 border border-brand-500/40 text-white text-sm font-semibold tracking-wide mb-6 backdrop-blur-md shadow-lg">
+                <i class="fas fa-briefcase text-xs mr-2 text-brand-100"></i> WHAT WE OFFER
+            </span>
+            <h1 class="font-heading text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
+                Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-white">Services</span>
+            </h1>
+            <p class="text-xl text-blue-100 max-w-2xl font-light drop-shadow-md">
+                Discover exclusive and highly rewarding employment opportunities tailored for the <strong class="text-white">Israel Job Market</strong>.
+            </p>
+        </div>
+    </header>
+
+    <!-- Services Content -->
+    <main class="py-24 flex-grow relative overflow-hidden">
+        <!-- Bubbles Container -->
+        <div class="bubbles-container absolute inset-0 pointer-events-none z-0"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-brand-600 font-semibold tracking-wide uppercase mb-3">What We Offer</h2>
+                <h3 class="font-heading text-3xl md:text-4xl font-bold text-brand-900 mb-6">Your Path to Israel Starts Here</h3>
+                <p class="text-gray-600 text-lg">We currently focus entirely on the highly lucrative and secure Israeli market, specializing in several major sectors that are in high demand.</p>
+            </div>
+
+            <!-- Service 1: Caregiving -->
+            <div class="flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-xl mb-16 border border-gray-100 group">
+                <div class="md:w-1/2 relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Caregiving in Israel" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 min-h-[300px]">
+                    <div class="absolute top-4 left-4 bg-brand-500 text-white px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wider">Top Sector</div>
+                </div>
+                <div class="md:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
+                    <div class="w-14 h-14 bg-blue-50 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-user-nurse"></i>
+                    </div>
+                    <h3 class="font-heading text-3xl font-bold text-brand-900 mb-4">Caregiving Professional</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">The demand for compassionate and skilled caregivers in Israel is at an all-time high. We connect qualified professionals with families and institutions needing dedicated care for the elderly or individuals with special needs.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Highly competitive monthly salary</li>
+                        <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Accommodation & basic needs provided</li>
+                        <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Secure and legal working environment</li>
+                        <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Excellent healthcare benefits</li>
+                    </ul>
+                    <a href="contact.html" class="inline-block border-2 border-brand-900 text-brand-900 hover:bg-brand-900 hover:text-white font-bold px-8 py-3 rounded-full transition-colors w-max">Apply Now</a>
+                </div>
+            </div>
+
+            <!-- Service 2: Agriculture -->
+            <div class="flex flex-col md:flex-row-reverse bg-white rounded-3xl overflow-hidden shadow-xl mb-16 border border-gray-100 group">
+                <div class="md:w-1/2 relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Agriculture in Israel" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 min-h-[300px]">
+                </div>
+                <div class="md:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
+                    <div class="w-14 h-14 bg-blue-50 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 class="font-heading text-3xl font-bold text-brand-900 mb-4">Agriculture & Farming</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">Israel is known for its advanced agricultural technology. We recruit hardworking individuals to work in modern farms, greenhouses, and agricultural facilities. No prior extensive experience is strictly required, but dedication is a must.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Excellent earning potential with overtime</li>
+                        <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Exposure to modern farming techniques</li>
+                        <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Safe working and living conditions</li>
+                        <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Full legal protection under Israeli labor laws</li>
+                    </ul>
+                    <a href="contact.html" class="inline-block border-2 border-brand-900 text-brand-900 hover:bg-brand-900 hover:text-white font-bold px-8 py-3 rounded-full transition-colors w-max">Apply Now</a>
+                </div>
+            </div>
+
+            <!-- Service 3: Technical and Industrial -->
+            <div class="flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-xl mb-16 border border-gray-100 group">
+                <div class="md:w-1/2 relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Technical and Industrial Services" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 min-h-[300px]">
+                </div>
+                <div class="md:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
+                    <div class="w-14 h-14 bg-blue-50 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3 class="font-heading text-3xl font-bold text-brand-900 mb-4">Technical and Industrial Services</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">We provide skilled technical and industrial workforce solutions for various sectors in Israel. From manufacturing to construction and maintenance, our candidates are trained to meet high industry standards.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Highly competitive salaries</li>
+                        <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Opportunities in advanced industrial sectors</li>
+                        <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Secure and legal working environment</li>
+                        <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Professional growth and experience</li>
+                    </ul>
+                    <a href="contact.html" class="inline-block border-2 border-brand-900 text-brand-900 hover:bg-brand-900 hover:text-white font-bold px-8 py-3 rounded-full transition-colors w-max">Apply Now</a>
+                </div>
+            </div>
+
+            <!-- Service 4: Unskilled (Cleaners) -->
+            <div class="flex flex-col md:flex-row-reverse bg-white rounded-3xl overflow-hidden shadow-xl mb-16 border border-gray-100 group">
+                <div class="md:w-1/2 relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Unskilled (Cleaners)" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 min-h-[300px]">
+                </div>
+                <div class="md:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
+                    <div class="w-14 h-14 bg-blue-50 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-broom"></i>
+                    </div>
+                    <h3 class="font-heading text-3xl font-bold text-brand-900 mb-4">Unskilled (Cleaners)</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">We offer excellent opportunities for unskilled workers, particularly in the cleaning and maintenance sectors. These positions provide a steady income and secure employment in Israel.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Reliable and consistent income</li>
+                        <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Accommodation and basic needs provided</li>
+                        <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Safe working conditions</li>
+                        <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Legal protection under Israeli labor laws</li>
+                    </ul>
+                    <a href="contact.html" class="inline-block border-2 border-brand-900 text-brand-900 hover:bg-brand-900 hover:text-white font-bold px-8 py-3 rounded-full transition-colors w-max">Apply Now</a>
+                </div>
+            </div>
+
+            <!-- Value Added Services -->
+            <div class="mt-24">
+                <h3 class="font-heading text-3xl font-bold text-center text-brand-900 mb-12">Our Processing Support</h3>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="bg-blue-50/50 p-6 rounded-2xl border border-blue-100 text-center hover:shadow-md transition-shadow">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-4 text-brand-600 shadow-sm"><i class="fas fa-passport text-xl"></i></div>
+                        <h4 class="font-bold text-brand-900 mb-2">Visa Processing</h4>
+                        <p class="text-gray-500 text-sm">Complete handling of all documentation and visa requirements.</p>
+                    </div>
+                    <div class="bg-blue-50/50 p-6 rounded-2xl border border-blue-100 text-center hover:shadow-md transition-shadow">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-4 text-brand-600 shadow-sm"><i class="fas fa-plane-departure text-xl"></i></div>
+                        <h4 class="font-bold text-brand-900 mb-2">Ticketing</h4>
+                        <p class="text-gray-500 text-sm">Flight arrangements and best routes to your destination.</p>
+                    </div>
+                    <div class="bg-blue-50/50 p-6 rounded-2xl border border-blue-100 text-center hover:shadow-md transition-shadow">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-4 text-brand-600 shadow-sm"><i class="fas fa-chalkboard-teacher text-xl"></i></div>
+                        <h4 class="font-bold text-brand-900 mb-2">Training</h4>
+                        <p class="text-gray-500 text-sm">Language and cultural orientation before departure.</p>
+                    </div>
+                    <div class="bg-blue-50/50 p-6 rounded-2xl border border-blue-100 text-center hover:shadow-md transition-shadow">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-4 text-brand-600 shadow-sm"><i class="fas fa-headset text-xl"></i></div>
+                        <h4 class="font-bold text-brand-900 mb-2">24/7 Support</h4>
+                        <p class="text-gray-500 text-sm">Continuous support even after you reach Israel.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-16 mt-auto border-t-4 border-brand-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="mb-6 inline-block">
+                        <img src="logo.png" alt="Pearl Stone Logo" class="h-20 md:h-24 lg:h-28 w-auto transform transition duration-300 hover:scale-105 drop-shadow-[0_0_20px_rgba(255,255,255,1)] drop-shadow-[0_0_40px_rgba(255,255,255,0.6)]">
+                    </div>
+                    <p class="text-sm mb-6">Your premium partner for foreign employment in Israel.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 font-heading tracking-wide">Quick Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="services.html" class="hover:text-white transition-colors">Our Services</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 font-heading tracking-wide">Contact Info</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-brand-500"></i>
+                            <span>564/1 Madiwela road , Thalawathugoda</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-brand-500"></i>
+                            <span>011 363 3666</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm">
+                <p>&copy; 2026 Pearl Stone Foreign Employment Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
