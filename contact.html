@@ -395,7 +395,7 @@
         </p>
       </div>
     </footer>
-
+    
     <script src="app.js"></script>
     <script>
       function submitForm() {
@@ -410,43 +410,27 @@
         const btn = document.querySelector('button[type="button"]');
         const originalText = btn.innerHTML;
         btn.innerHTML =
-          '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
+          'Sended <i class="fa-solid fa-circle-check" style="color: rgb(28, 209, 78);"></i>';
         btn.disabled = true;
         btn.classList.add("opacity-75", "cursor-not-allowed");
 
         const formData = new FormData(form);
 
-        // Target Email Address
-        const emailAddress = "nadeejaamaraweera@gmail.com";
-
-        fetch(`https://formsubmit.co/ajax/${emailAddress}`, {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-          },
-          body: formData,
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            if (data.success) {
-              form.classList.add("hidden");
-              document
-                .getElementById("successMessage")
-                .classList.remove("hidden");
-            } else {
-              alert("Something went wrong. Please try again.");
-              btn.innerHTML = originalText;
-              btn.disabled = false;
-              btn.classList.remove("opacity-75", "cursor-not-allowed");
-            }
-          })
-          .catch((error) => {
-            alert("Network error. Please check your connection and try again.");
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-            btn.classList.remove("opacity-75", "cursor-not-allowed");
-          });
+          sendWhatsApp(formData);
       }
+      function sendWhatsApp(formData) {
+      const phone = "94769049233"; // Sri Lanka number (no +)
+      const message = `New Contact Inquiry from\n\nName: ${formData.get("First Name")}Last name: ${formData.get(
+        "Last Name"
+      )}\nEmail: ${formData.get("Email Address")}\nPhone: ${formData.get(
+        "Phone Number"
+      )}\nSector: ${formData.get("Interested Sector")}\nMessage: ${
+        formData.get("Message")
+      }`;
+
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
+}
     </script>
   </body>
 </html>
