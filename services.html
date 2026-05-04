@@ -44,6 +44,39 @@
             background-size: cover;
             background-position: center;
         }
+    
+        /* Mobile Accordion Styles */
+        @media (max-width: 1023px) {
+            .card-details-content {
+                display: grid;
+                grid-template-rows: 0fr;
+                transition: grid-template-rows 0.4s ease-out, opacity 0.4s ease-out, margin-top 0.4s ease-out;
+                opacity: 0;
+                margin-top: 0;
+            }
+            .card-details-content.expanded {
+                grid-template-rows: 1fr;
+                opacity: 1;
+                margin-top: 0.5rem;
+            }
+        }
+        /* Desktop Expanded Styles */
+        @media (min-width: 1024px) {
+            .card-details-content {
+                display: block;
+                opacity: 1;
+                margin-top: 0.5rem;
+            }
+        }
+        .card-details-inner {
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .rotate-180 {
+            transform: rotate(180deg);
+        }
     </style>
     <link rel="stylesheet" href="fade.css">
 </head>
@@ -116,194 +149,332 @@
                 <p class="text-gray-600 text-lg">We currently focus entirely on the highly lucrative and secure Israeli market, specializing in several major sectors that are in high demand.</p>
             </div>
 
-            <!-- Service 1: Caregiving -->
-            <div class="flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-xl mb-16 border border-gray-100 group fade-left">
-                <div class="md:w-1/2 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Caregiving in Israel" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 min-h-[300px]">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-24">
+<!-- Service 1: Caregiving -->
+            <div class="flex flex-col bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 group fade-left h-full">
+                <div class="w-full relative overflow-hidden h-56 md:h-64 shrink-0">
+                    <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Caregiving in Israel" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     <div class="absolute top-4 left-4 bg-brand-500 text-white px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wider">Top Sector</div>
                 </div>
-                <div class="md:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
-                    <div class="w-14 h-14 bg-blue-50 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">
-                        <i class="fas fa-user-nurse"></i>
+                <div class="w-full p-6 lg:p-8 flex flex-col justify-start flex-grow">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-blue-50 text-brand-600 rounded-xl flex items-center justify-center text-2xl shrink-0 shadow-sm">
+                            <i class="fas fa-user-nurse"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl md:text-3xl font-bold text-brand-900 leading-tight">Caregiving Professional</h3>
                     </div>
-                    <h3 class="font-heading text-3xl font-bold text-brand-900 mb-4">Caregiving Professional</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">The demand for compassionate and skilled caregivers in Israel is at an all-time high. We connect qualified professionals with families and institutions needing dedicated care for the elderly or individuals with special needs.</p>
+                    
+                    <button onclick="toggleCardDetails(this)" class="lg:hidden w-full bg-brand-50 hover:bg-brand-100 text-brand-600 font-bold py-3.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 mt-2 shadow-sm">
+                        <span class="btn-text">View Details</span> <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                    </button>
+
+                    <div class="card-details-content">
+                        <div class="card-details-inner">
+                            <div class="pt-6 flex flex-col flex-grow">
+                                <p class="text-gray-600 mb-6 leading-relaxed">The demand for compassionate and skilled caregivers in Israel is at an all-time high. We connect qualified professionals with families and institutions needing dedicated care for the elderly or individuals with special needs.</p>
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Highly competitive monthly salary</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Accommodation & basic needs provided</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Secure and legal working environment</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Excellent healthcare benefits</li>
                     </ul>
-                    <a href="contact.html" class="inline-block border-2 border-brand-900 text-brand-900 hover:bg-brand-900 hover:text-white font-bold px-8 py-3 rounded-full transition-colors w-max">Apply Now</a>
+                                <div class="mt-8">
+                                    <a href="contact.html" class="inline-block bg-brand-900 text-white hover:bg-brand-800 font-bold px-8 py-3 rounded-full transition-colors w-max shadow-md">Apply Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Service 2: Agriculture -->
-            <div class="flex flex-col md:flex-row-reverse bg-white rounded-3xl overflow-hidden shadow-xl mb-16 border border-gray-100 group fade-right">
-                <div class="md:w-1/2 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Agriculture in Israel" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 min-h-[300px]">
+            <div class="flex flex-col bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 group fade-right h-full">
+                <div class="w-full relative overflow-hidden h-56 md:h-64 shrink-0">
+                    <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Agriculture in Israel" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 </div>
-                <div class="md:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
-                    <div class="w-14 h-14 bg-blue-50 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">
-                        <i class="fas fa-seedling"></i>
+                <div class="w-full p-6 lg:p-8 flex flex-col justify-start flex-grow">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-blue-50 text-brand-600 rounded-xl flex items-center justify-center text-2xl shrink-0 shadow-sm">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl md:text-3xl font-bold text-brand-900 leading-tight">Agriculture & Farming</h3>
                     </div>
-                    <h3 class="font-heading text-3xl font-bold text-brand-900 mb-4">Agriculture & Farming</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">Israel is known for its advanced agricultural technology. We recruit hardworking individuals to work in modern farms, greenhouses, and agricultural facilities. No prior extensive experience is strictly required, but dedication is a must.</p>
+                    
+                    <button onclick="toggleCardDetails(this)" class="lg:hidden w-full bg-brand-50 hover:bg-brand-100 text-brand-600 font-bold py-3.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 mt-2 shadow-sm">
+                        <span class="btn-text">View Details</span> <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                    </button>
+
+                    <div class="card-details-content">
+                        <div class="card-details-inner">
+                            <div class="pt-6 flex flex-col flex-grow">
+                                <p class="text-gray-600 mb-6 leading-relaxed">Israel is known for its advanced agricultural technology. We recruit hardworking individuals to work in modern farms, greenhouses, and agricultural facilities. No prior extensive experience is strictly required, but dedication is a must.</p>
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Excellent earning potential with overtime</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Exposure to modern farming techniques</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Safe working and living conditions</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Full legal protection under Israeli labor laws</li>
                     </ul>
-                    <a href="contact.html" class="inline-block border-2 border-brand-900 text-brand-900 hover:bg-brand-900 hover:text-white font-bold px-8 py-3 rounded-full transition-colors w-max">Apply Now</a>
+                                <div class="mt-8">
+                                    <a href="contact.html" class="inline-block bg-brand-900 text-white hover:bg-brand-800 font-bold px-8 py-3 rounded-full transition-colors w-max shadow-md">Apply Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Service 3: Technical and Industrial -->
-            <div class="flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-xl mb-16 border border-gray-100 group fade-left">
-                <div class="md:w-1/2 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Technical and Industrial Services" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 min-h-[300px]">
+            <div class="flex flex-col bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 group fade-left h-full">
+                <div class="w-full relative overflow-hidden h-56 md:h-64 shrink-0">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Technical and Industrial Services" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 </div>
-                <div class="md:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
-                    <div class="w-14 h-14 bg-blue-50 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">
-                        <i class="fas fa-industry"></i>
+                <div class="w-full p-6 lg:p-8 flex flex-col justify-start flex-grow">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-blue-50 text-brand-600 rounded-xl flex items-center justify-center text-2xl shrink-0 shadow-sm">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl md:text-3xl font-bold text-brand-900 leading-tight">Technical and Industrial Services</h3>
                     </div>
-                    <h3 class="font-heading text-3xl font-bold text-brand-900 mb-4">Technical and Industrial Services</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">We provide skilled technical and industrial workforce solutions for various sectors in Israel. From manufacturing to construction and maintenance, our candidates are trained to meet high industry standards.</p>
+                    
+                    <button onclick="toggleCardDetails(this)" class="lg:hidden w-full bg-brand-50 hover:bg-brand-100 text-brand-600 font-bold py-3.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 mt-2 shadow-sm">
+                        <span class="btn-text">View Details</span> <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                    </button>
+
+                    <div class="card-details-content">
+                        <div class="card-details-inner">
+                            <div class="pt-6 flex flex-col flex-grow">
+                                <p class="text-gray-600 mb-6 leading-relaxed">We provide skilled technical and industrial workforce solutions for various sectors in Israel. From manufacturing to construction and maintenance, our candidates are trained to meet high industry standards.</p>
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Highly competitive salaries</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Opportunities in advanced industrial sectors</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Secure and legal working environment</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Professional growth and experience</li>
                     </ul>
-                    <a href="contact.html" class="inline-block border-2 border-brand-900 text-brand-900 hover:bg-brand-900 hover:text-white font-bold px-8 py-3 rounded-full transition-colors w-max">Apply Now</a>
+                                <div class="mt-8">
+                                    <a href="contact.html" class="inline-block bg-brand-900 text-white hover:bg-brand-800 font-bold px-8 py-3 rounded-full transition-colors w-max shadow-md">Apply Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Service 4: Unskilled (Cleaners) -->
-            <div class="flex flex-col md:flex-row-reverse bg-white rounded-3xl overflow-hidden shadow-xl mb-16 border border-gray-100 group fade-right">
-                <div class="md:w-1/2 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Unskilled (Cleaners)" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 min-h-[300px]">
+            <div class="flex flex-col bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 group fade-right h-full">
+                <div class="w-full relative overflow-hidden h-56 md:h-64 shrink-0">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Unskilled (Cleaners)" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 </div>
-                <div class="md:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
-                    <div class="w-14 h-14 bg-blue-50 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">
-                        <i class="fas fa-broom"></i>
+                <div class="w-full p-6 lg:p-8 flex flex-col justify-start flex-grow">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-blue-50 text-brand-600 rounded-xl flex items-center justify-center text-2xl shrink-0 shadow-sm">
+                            <i class="fas fa-broom"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl md:text-3xl font-bold text-brand-900 leading-tight">Unskilled (Cleaners)</h3>
                     </div>
-                    <h3 class="font-heading text-3xl font-bold text-brand-900 mb-4">Unskilled (Cleaners)</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">We offer excellent opportunities for unskilled workers, particularly in the cleaning and maintenance sectors. These positions provide a steady income and secure employment in Israel.</p>
+                    
+                    <button onclick="toggleCardDetails(this)" class="lg:hidden w-full bg-brand-50 hover:bg-brand-100 text-brand-600 font-bold py-3.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 mt-2 shadow-sm">
+                        <span class="btn-text">View Details</span> <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                    </button>
+
+                    <div class="card-details-content">
+                        <div class="card-details-inner">
+                            <div class="pt-6 flex flex-col flex-grow">
+                                <p class="text-gray-600 mb-6 leading-relaxed">We offer excellent opportunities for unskilled workers, particularly in the cleaning and maintenance sectors. These positions provide a steady income and secure employment in Israel.</p>
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Reliable and consistent income</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Accommodation and basic needs provided</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Safe working conditions</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Legal protection under Israeli labor laws</li>
                     </ul>
-                    <a href="contact.html" class="inline-block border-2 border-brand-900 text-brand-900 hover:bg-brand-900 hover:text-white font-bold px-8 py-3 rounded-full transition-colors w-max">Apply Now</a>
+                                <div class="mt-8">
+                                    <a href="contact.html" class="inline-block bg-brand-900 text-white hover:bg-brand-800 font-bold px-8 py-3 rounded-full transition-colors w-max shadow-md">Apply Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Service 5: Catering Services -->
-            <div class="flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-xl mb-16 border border-gray-100 group fade-left">
-                <div class="md:w-1/2 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Catering Services" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 min-h-[300px]">
+            <div class="flex flex-col bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 group fade-left h-full">
+                <div class="w-full relative overflow-hidden h-56 md:h-64 shrink-0">
+                    <img src="https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Catering Services" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 </div>
-                <div class="md:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
-                    <div class="w-14 h-14 bg-blue-50 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">
-                        <i class="fas fa-utensils"></i>
+                <div class="w-full p-6 lg:p-8 flex flex-col justify-start flex-grow">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-blue-50 text-brand-600 rounded-xl flex items-center justify-center text-2xl shrink-0 shadow-sm">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl md:text-3xl font-bold text-brand-900 leading-tight">Catering Services</h3>
                     </div>
-                    <h3 class="font-heading text-3xl font-bold text-brand-900 mb-4">Catering Services</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">We provide skilled personnel for the vibrant food and beverage industry in Israel. Whether it's for large-scale events, institutional catering, or premium dining services, our candidates are well-trained to deliver excellence.</p>
+                    
+                    <button onclick="toggleCardDetails(this)" class="lg:hidden w-full bg-brand-50 hover:bg-brand-100 text-brand-600 font-bold py-3.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 mt-2 shadow-sm">
+                        <span class="btn-text">View Details</span> <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                    </button>
+
+                    <div class="card-details-content">
+                        <div class="card-details-inner">
+                            <div class="pt-6 flex flex-col flex-grow">
+                                <p class="text-gray-600 mb-6 leading-relaxed">We provide skilled personnel for the vibrant food and beverage industry in Israel. Whether it's for large-scale events, institutional catering, or premium dining services, our candidates are well-trained to deliver excellence.</p>
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Highly competitive salaries</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Dynamic working environment</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Secure and legal working conditions</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Accommodation and meals often provided</li>
                     </ul>
-                    <a href="contact.html" class="inline-block border-2 border-brand-900 text-brand-900 hover:bg-brand-900 hover:text-white font-bold px-8 py-3 rounded-full transition-colors w-max">Apply Now</a>
+                                <div class="mt-8">
+                                    <a href="contact.html" class="inline-block bg-brand-900 text-white hover:bg-brand-800 font-bold px-8 py-3 rounded-full transition-colors w-max shadow-md">Apply Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Service 6: Supermarket -->
-            <div class="flex flex-col md:flex-row-reverse bg-white rounded-3xl overflow-hidden shadow-xl mb-16 border border-gray-100 group fade-right">
-                <div class="md:w-1/2 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Supermarket Services" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 min-h-[300px]">
+            <div class="flex flex-col bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 group fade-right h-full">
+                <div class="w-full relative overflow-hidden h-56 md:h-64 shrink-0">
+                    <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Supermarket Services" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 </div>
-                <div class="md:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
-                    <div class="w-14 h-14 bg-blue-50 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">
-                        <i class="fas fa-shopping-cart"></i>
+                <div class="w-full p-6 lg:p-8 flex flex-col justify-start flex-grow">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-blue-50 text-brand-600 rounded-xl flex items-center justify-center text-2xl shrink-0 shadow-sm">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl md:text-3xl font-bold text-brand-900 leading-tight">Supermarket & Retail</h3>
                     </div>
-                    <h3 class="font-heading text-3xl font-bold text-brand-900 mb-4">Supermarket & Retail</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">Join Israel's fast-paced retail sector. We recruit dedicated staff for supermarkets and large retail chains, offering roles in inventory management, customer service, and store operations.</p>
+                    
+                    <button onclick="toggleCardDetails(this)" class="lg:hidden w-full bg-brand-50 hover:bg-brand-100 text-brand-600 font-bold py-3.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 mt-2 shadow-sm">
+                        <span class="btn-text">View Details</span> <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                    </button>
+
+                    <div class="card-details-content">
+                        <div class="card-details-inner">
+                            <div class="pt-6 flex flex-col flex-grow">
+                                <p class="text-gray-600 mb-6 leading-relaxed">Join Israel's fast-paced retail sector. We recruit dedicated staff for supermarkets and large retail chains, offering roles in inventory management, customer service, and store operations.</p>
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Reliable and consistent income</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Safe and air-conditioned work environments</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Opportunities for overtime</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Legal protection under Israeli labor laws</li>
                     </ul>
-                    <a href="contact.html" class="inline-block border-2 border-brand-900 text-brand-900 hover:bg-brand-900 hover:text-white font-bold px-8 py-3 rounded-full transition-colors w-max">Apply Now</a>
+                                <div class="mt-8">
+                                    <a href="contact.html" class="inline-block bg-brand-900 text-white hover:bg-brand-800 font-bold px-8 py-3 rounded-full transition-colors w-max shadow-md">Apply Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Service 7: Warehouse & Logistics -->
-            <div class="flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-xl mb-16 border border-gray-100 group fade-left">
-                <div class="md:w-1/2 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Warehouse & Logistics" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 min-h-[300px]">
+            <div class="flex flex-col bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 group fade-left h-full">
+                <div class="w-full relative overflow-hidden h-56 md:h-64 shrink-0">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Warehouse & Logistics" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 </div>
-                <div class="md:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
-                    <div class="w-14 h-14 bg-blue-50 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">
-                        <i class="fas fa-boxes"></i>
+                <div class="w-full p-6 lg:p-8 flex flex-col justify-start flex-grow">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-blue-50 text-brand-600 rounded-xl flex items-center justify-center text-2xl shrink-0 shadow-sm">
+                            <i class="fas fa-boxes"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl md:text-3xl font-bold text-brand-900 leading-tight">Warehouse & Logistics</h3>
                     </div>
-                    <h3 class="font-heading text-3xl font-bold text-brand-900 mb-4">Warehouse & Logistics</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">The logistics sector in Israel is expanding rapidly. We provide employment opportunities in modern warehouses, distribution centers, and logistics hubs for hardworking individuals.</p>
+                    
+                    <button onclick="toggleCardDetails(this)" class="lg:hidden w-full bg-brand-50 hover:bg-brand-100 text-brand-600 font-bold py-3.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 mt-2 shadow-sm">
+                        <span class="btn-text">View Details</span> <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                    </button>
+
+                    <div class="card-details-content">
+                        <div class="card-details-inner">
+                            <div class="pt-6 flex flex-col flex-grow">
+                                <p class="text-gray-600 mb-6 leading-relaxed">The logistics sector in Israel is expanding rapidly. We provide employment opportunities in modern warehouses, distribution centers, and logistics hubs for hardworking individuals.</p>
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Excellent earning potential</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Work in highly organized environments</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Secure and legal working conditions</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Accommodation and basic needs provided</li>
                     </ul>
-                    <a href="contact.html" class="inline-block border-2 border-brand-900 text-brand-900 hover:bg-brand-900 hover:text-white font-bold px-8 py-3 rounded-full transition-colors w-max">Apply Now</a>
+                                <div class="mt-8">
+                                    <a href="contact.html" class="inline-block bg-brand-900 text-white hover:bg-brand-800 font-bold px-8 py-3 rounded-full transition-colors w-max shadow-md">Apply Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Service 8: Constructions -->
-            <div class="flex flex-col md:flex-row-reverse bg-white rounded-3xl overflow-hidden shadow-xl mb-16 border border-gray-100 group fade-right">
-                <div class="md:w-1/2 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Constructions" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 min-h-[300px]">
+            <div class="flex flex-col bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 group fade-right h-full">
+                <div class="w-full relative overflow-hidden h-56 md:h-64 shrink-0">
+                    <img src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Constructions" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 </div>
-                <div class="md:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
-                    <div class="w-14 h-14 bg-blue-50 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">
-                        <i class="fas fa-hard-hat"></i>
+                <div class="w-full p-6 lg:p-8 flex flex-col justify-start flex-grow">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-blue-50 text-brand-600 rounded-xl flex items-center justify-center text-2xl shrink-0 shadow-sm">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl md:text-3xl font-bold text-brand-900 leading-tight">Constructions</h3>
                     </div>
-                    <h3 class="font-heading text-3xl font-bold text-brand-900 mb-4">Constructions</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">Israel's construction industry is booming. We recruit skilled and semi-skilled workers for various construction projects, offering a chance to be part of building modern infrastructure.</p>
+                    
+                    <button onclick="toggleCardDetails(this)" class="lg:hidden w-full bg-brand-50 hover:bg-brand-100 text-brand-600 font-bold py-3.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 mt-2 shadow-sm">
+                        <span class="btn-text">View Details</span> <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                    </button>
+
+                    <div class="card-details-content">
+                        <div class="card-details-inner">
+                            <div class="pt-6 flex flex-col flex-grow">
+                                <p class="text-gray-600 mb-6 leading-relaxed">Israel's construction industry is booming. We recruit skilled and semi-skilled workers for various construction projects, offering a chance to be part of building modern infrastructure.</p>
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Highly lucrative salary packages</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Strict adherence to safety standards</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Opportunities for significant overtime</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Professional experience in major projects</li>
                     </ul>
-                    <a href="contact.html" class="inline-block border-2 border-brand-900 text-brand-900 hover:bg-brand-900 hover:text-white font-bold px-8 py-3 rounded-full transition-colors w-max">Apply Now</a>
+                                <div class="mt-8">
+                                    <a href="contact.html" class="inline-block bg-brand-900 text-white hover:bg-brand-800 font-bold px-8 py-3 rounded-full transition-colors w-max shadow-md">Apply Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Service 9: Renovation -->
-            <div class="flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-xl mb-16 border border-gray-100 group fade-left">
-                <div class="md:w-1/2 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Renovation" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 min-h-[300px]">
+            <div class="flex flex-col bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 group fade-left h-full">
+                <div class="w-full relative overflow-hidden h-56 md:h-64 shrink-0">
+                    <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Renovation" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 </div>
-                <div class="md:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
-                    <div class="w-14 h-14 bg-blue-50 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">
-                        <i class="fas fa-tools"></i>
+                <div class="w-full p-6 lg:p-8 flex flex-col justify-start flex-grow">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-blue-50 text-brand-600 rounded-xl flex items-center justify-center text-2xl shrink-0 shadow-sm">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl md:text-3xl font-bold text-brand-900 leading-tight">Renovation & Maintenance</h3>
                     </div>
-                    <h3 class="font-heading text-3xl font-bold text-brand-900 mb-4">Renovation & Maintenance</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">We connect experienced tradesmen and general workers with renovation and maintenance companies. Work on exciting residential and commercial upgrades across Israel.</p>
+                    
+                    <button onclick="toggleCardDetails(this)" class="lg:hidden w-full bg-brand-50 hover:bg-brand-100 text-brand-600 font-bold py-3.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 mt-2 shadow-sm">
+                        <span class="btn-text">View Details</span> <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                    </button>
+
+                    <div class="card-details-content">
+                        <div class="card-details-inner">
+                            <div class="pt-6 flex flex-col flex-grow">
+                                <p class="text-gray-600 mb-6 leading-relaxed">We connect experienced tradesmen and general workers with renovation and maintenance companies. Work on exciting residential and commercial upgrades across Israel.</p>
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Competitive salaries based on skill level</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Diverse and interesting work environments</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Secure and legal working conditions</li>
                         <li class="flex items-center text-gray-700"><i class="fas fa-check text-brand-500 mr-3"></i> Accommodation and basic needs provided</li>
                     </ul>
-                    <a href="contact.html" class="inline-block border-2 border-brand-900 text-brand-900 hover:bg-brand-900 hover:text-white font-bold px-8 py-3 rounded-full transition-colors w-max">Apply Now</a>
+                                <div class="mt-8">
+                                    <a href="contact.html" class="inline-block bg-brand-900 text-white hover:bg-brand-800 font-bold px-8 py-3 rounded-full transition-colors w-max shadow-md">Apply Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+
             </div>
 
             <!-- Value Added Services -->
@@ -391,5 +562,29 @@
     <script src="sendMessage.js"></script>
 
     <script src="app.js"></script>
-</body>
+
+    <script>
+        function toggleCardDetails(btn) {
+            const contentDiv = btn.nextElementSibling;
+            const icon = btn.querySelector('.fa-chevron-down');
+            const textSpan = btn.querySelector('.btn-text');
+            
+            contentDiv.classList.toggle('expanded');
+            
+            if (contentDiv.classList.contains('expanded')) {
+                icon.classList.add('rotate-180');
+                textSpan.textContent = 'Hide Details';
+                btn.classList.replace('bg-brand-50', 'bg-brand-900');
+                btn.classList.replace('text-brand-600', 'text-white');
+                btn.classList.replace('hover:bg-brand-100', 'hover:bg-brand-800');
+            } else {
+                icon.classList.remove('rotate-180');
+                textSpan.textContent = 'View Details';
+                btn.classList.replace('bg-brand-900', 'bg-brand-50');
+                btn.classList.replace('text-white', 'text-brand-600');
+                btn.classList.replace('hover:bg-brand-800', 'hover:bg-brand-100');
+            }
+        }
+    </script>
+\n</body>
 </html>
