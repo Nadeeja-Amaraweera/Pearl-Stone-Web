@@ -39,9 +39,7 @@ if (burgerToggle && mobileMenu) {
         if (burgerToggle.checked) {
             // Show first
             mobileMenu.classList.remove('hidden');
-
-            // Force browser reflow (THIS is the real fix)
-            mobileMenu.offsetHeight;
+            mobileMenu.offsetHeight; // Force reflow to reset animation
 
             // Then animate
             mobileMenu.classList.remove('translate-x-full');
