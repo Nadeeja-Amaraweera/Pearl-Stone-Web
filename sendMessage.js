@@ -30,19 +30,9 @@ whatsappLink.classList.add('whatsapp-link');
 
 sendButton.addEventListener('click', () => {
     const message = messageInput.value.trim();
-    const phone = "94764823793"; // Sri Lanka number (no +)
-    
+    const phone = "94769049233"; // Sri Lanka number (no +)
     if (message) {
-        // 1. Get the current website URL (Returns localhost during local development or the live URL once hosted)
-        // If you prefer, you can replace window.location.href with a direct link like "https://your-github-link.com"
-        const websiteUrl = window.location.href; 
-        
-        // 2. Append the website link below the customer's message (\n adds a new line to separate the text)
-        const finalMessage = message + "\n" + websiteUrl;
-
-        // 3. Add the updated finalMessage to the WhatsApp API URL
-        const url = `https://wa.me/${phone}?text=${encodeURIComponent(finalMessage)}`;
-        
+        const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
         window.open(url, "_blank");
         
         // 4. Reset the input box and hide the message box after sending
@@ -73,3 +63,4 @@ whatsappIcon.style.color = 'rgb(28, 209, 78)';
 
 whatsappLink.appendChild(whatsappIcon);
 document.body.appendChild(whatsappLink);
+
