@@ -31,15 +31,40 @@ const observer3 = new IntersectionObserver((entries) => {
 });
 rightCards.forEach(sec => observer3.observe(sec));
 
-// Mobile Menu Toggle
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const burgerToggle = document.getElementById('burger-toggle');
 const mobileMenu = document.getElementById('mobile-menu');
 
-if(mobileMenuBtn && mobileMenu) {
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
+if (burgerToggle && mobileMenu) {
+    burgerToggle.addEventListener('change', () => {
+        if (burgerToggle.checked) {
+            // Show first
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.offsetHeight; // Force reflow to reset animation
+
+            // Then animate
+            mobileMenu.classList.remove('translate-x-full');
+            mobileMenu.classList.add('translate-x-0');
+
+        } else {
+            mobileMenu.classList.remove('translate-x-0');
+            mobileMenu.classList.add('translate-x-full');
+
+            // Hide after animation
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 300);
+        }
     });
 }
+
+const links = document.querySelectorAll('#mobile-menu a');
+
+links.forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        burgerToggle.checked = false;
+    });
+});
 
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');
