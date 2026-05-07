@@ -1,75 +1,113 @@
 <!doctype html>
 <html lang="en" class="scroll-smooth">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us - Pearl Stone Agency</title>
-  <meta name="description"
-    content="Contact Pearl Stone Agency for any inquiries regarding foreign employment in Israel." />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50: "#eff6ff",
-              100: "#dbeafe",
-              500: "#3b82f6",
-              600: "#2563eb",
-              800: "#1e40af",
-              900: "#172554",
-              accent: "#3b82f6",
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Pearl Stone Agency</title>
+    <meta
+      name="description"
+      content="Contact Pearl Stone Agency for any inquiries regarding foreign employment in Israel."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: "#eff6ff",
+                100: "#dbeafe",
+                500: "#3b82f6",
+                600: "#2563eb",
+                800: "#1e40af",
+                900: "#172554",
+                accent: "#3b82f6",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              heading: ["Outfit", "sans-serif"],
             },
           },
-          fontFamily: {
-            sans: ["Inter", "sans-serif"],
-            heading: ["Outfit", "sans-serif"],
-          },
         },
-      },
-    };
-  </script>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>
-    .glass-effect {
-      background: rgba(15, 23, 42, 0.85);
-      backdrop-filter: blur(16px) saturate(180%);
-      -webkit-backdrop-filter: blur(16px) saturate(180%);
-      border-bottom: none;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-    }
-
-    .page-header {
-      background-color: #172554;
-      background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%233b82f6" fill-opacity="0.05"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
-    }
-  </style>
-</head>
-
-<body class="font-sans text-gray-800 antialiased bg-gray-50 flex flex-col min-h-screen">
-  <!-- Navigation -->
-  <nav class="fixed w-full z-50 bg-transparent transition-all duration-300" id="navbar">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center min-h-[70px] md:min-h-[90px] py-1">
-        <div class="flex-shrink-0 flex items-center">
-          <a href="index.html" class="block relative z-50 group">
-            <div
-              class="absolute inset-2 bg-white/50 blur-xl rounded-[100%] scale-150 -z-10 transition-all duration-500 group-hover:bg-white/60">
-            </div>
-            <img src="logo.png" alt="Pearl Stone Logo"
-              class="relative h-16 sm:h-20 md:h-[80px] lg:h-[95px] w-auto transform transition-transform duration-500 group-hover:scale-105 drop-shadow-[0_0_12px_rgba(255,255,255,0.9)]" />
-          </a>
-        </div>
-        <div class="hidden md:flex space-x-8 items-center">
-          <a href="index.html" class="text-white/80 hover:text-white font-medium transition-colors">Home</a>
-          <a href="about.html" class="text-white/80 hover:text-white font-medium transition-colors">About Us</a>
-          <a href="services.html" class="text-white/80 hover:text-white font-medium transition-colors">Our Services</a>
-          <a href="contact.html" class="text-white font-bold transition-colors drop-shadow-md">Contact Us</a>
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .glass-effect {
+        background: rgba(15, 23, 42, 0.85);
+        backdrop-filter: blur(16px) saturate(180%);
+        -webkit-backdrop-filter: blur(16px) saturate(180%);
+        border-bottom: none;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+      }
+      .page-header {
+        background-color: #172554;
+        background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%233b82f6" fill-opacity="0.05"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+      }
+    </style>
+  </head>
+  <body
+    class="font-sans text-gray-800 antialiased bg-gray-50 flex flex-col min-h-screen"
+  >
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full z-50 bg-transparent transition-all duration-300"
+      id="navbar"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex justify-between items-center min-h-[70px] md:min-h-[90px] py-1"
+        >
+          <div class="flex-shrink-0 flex items-center">
+            <a href="index.html" class="block relative z-50 group">
+              <div
+                class="absolute inset-2 bg-white/50 blur-xl rounded-[100%] scale-150 -z-10 transition-all duration-500 group-hover:bg-white/60"
+              ></div>
+              <img
+                src="logo.png"
+                alt="Pearl Stone Logo"
+                class="relative h-16 sm:h-20 md:h-[80px] lg:h-[95px] w-auto transform transition-transform duration-500 group-hover:scale-105 drop-shadow-[0_0_12px_rgba(255,255,255,0.9)]"
+              />
+            </a>
+          </div>
+          <div class="hidden md:flex space-x-8 items-center">
+            <a
+              href="index.html"
+              class="text-white/80 hover:text-white font-medium transition-colors"
+              >Home</a
+            >
+            <a
+              href="about.html"
+              class="text-white/80 hover:text-white font-medium transition-colors"
+              >About Us</a
+            >
+            <a
+              href="services.html"
+              class="text-white/80 hover:text-white font-medium transition-colors"
+              >Our Services</a
+            >
+            <a
+              href="contact.html"
+              class="text-white font-bold transition-colors drop-shadow-md"
+              >Contact Us</a
+            >
+          </div>
+          <div class="md:hidden flex items-center">
+            <button
+              id="mobile-menu-btn"
+              class="text-white hover:text-blue-200 focus:outline-none"
+            >
+              <i class="fas fa-bars text-2xl"></i>
+            </button>
+          </div>
         </div>
         <label class="relative w-8 h-6 cursor-pointer block md:hidden">
                     <input type="checkbox" id="burger-toggle" class="peer hidden" />

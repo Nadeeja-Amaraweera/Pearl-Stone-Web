@@ -31,13 +31,12 @@ whatsappLink.classList.add('whatsapp-link');
 sendButton.addEventListener('click', () => {
     const message = messageInput.value.trim();
     const phone = "94769049233"; // Sri Lanka number (no +)
-    const pageURL = window.location.href;
     if (message) {
-        const fullMessage = `${message}\n\n${pageURL}`;
-
-        const url = `https://wa.me/${phone}?text=${encodeURIComponent(fullMessage)}`;
+        const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
         window.open(url, "_blank");
-        messageInput.value = '';
+        
+        // 4. Reset the input box and hide the message box after sending
+        messageInput.value = 'Hello! Can I get more info on this?';
         messageBox.classList.add('hidden');
     }
 });
