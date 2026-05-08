@@ -35,6 +35,14 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Open Graph Tags for WhatsApp Thumbnail -->
+  <meta property="og:title" content="Pearl Stone - Foreign Employment Agency">
+  <meta property="og:description" content="Your trusted partner for securing high-quality employment opportunities in Israel.">
+  <meta property="og:image" content="https://ggnuldkuiuvbmowmygnf.supabase.co/storage/v1/object/public/images/1777836648508_logo.png">
+  <meta property="og:url" content="https://github.com/Nadeeja-Amaraweera/Pearl-Stone-Web">
+  <meta property="og:type" content="website">
+
   <style>
     .glass-effect {
       background: rgba(15, 23, 42, 0.85);
@@ -308,17 +316,23 @@
 
       sendWhatsApp(formData);
     }
+    
     function sendWhatsApp(formData) {
       const phone = "94769049233"; // Sri Lanka number (no +)
-      const message = `New Contact Inquiry from\n\nName: ${formData.get("First Name")}Last name: ${formData.get(
-        "Last Name"
+
+      // Put this to automatically get the link to the site
+      const siteUrl = window.location.href;
+
+      // At the end of the message \n\nSite Link: ${siteUrl} has been added
+      const message = `New Contact Inquiry from\n\nName: ${formData.get("First Name")} ${formData.get(
+      "Last Name"
       )}\nEmail: ${formData.get("Email Address")}\nPhone: ${formData.get(
-        "Phone Number"
+      "Phone Number"
       )}\nSector: ${formData.get("Interested Sector")}\nMessage: ${formData.get("Message")
-        }`;
+      }\nSite Link: ${siteUrl}`;
 
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-      window.open(url, "_blank");
+      window.open(url, "_blank"); 
     }
   </script>
 </body>
