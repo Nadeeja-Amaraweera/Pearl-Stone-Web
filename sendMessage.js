@@ -73,3 +73,4 @@ whatsappIcon.style.color = 'rgb(28, 209, 78)';
 
 whatsappLink.appendChild(whatsappIcon);
 document.body.appendChild(whatsappLink);
+
