@@ -1,0 +1,16 @@
+# Pearl Stone Web - SEO Optimized robots.txt
+# Last Updated: May 2026
+
+User-agent: *
+Allow: /
+
+# Block sensitive folders
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /secret/
+
+# Set crawl delay for responsible crawling (in seconds)
+Crawl-delay: 1
+
+# Sitemap reference for pearlstone.lk
+Sitemap: https://pearlstone.lk/sitemap.xml

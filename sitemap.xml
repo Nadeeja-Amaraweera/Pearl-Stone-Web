@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://nadeeja-amaraweera.github.io/Pearl-Stone-Web/</loc>
+        <loc>https://pearlstone.lk/</loc>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://nadeeja-amaraweera.github.io/Pearl-Stone-Web/about.html</loc>
+        <loc>https://pearlstone.lk/about.html</loc>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://nadeeja-amaraweera.github.io/Pearl-Stone-Web/services.html</loc>
+        <loc>https://pearlstone.lk/services.html</loc>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://nadeeja-amaraweera.github.io/Pearl-Stone-Web/contact.html</loc>
+        <loc>https://pearlstone.lk/contact.html</loc>
         <priority>0.8</priority>
     </url>
 </urlset>
