@@ -197,44 +197,53 @@
             <h3 class="font-heading text-2xl font-bold text-brand-900 mb-6">
               Send us a Message
             </h3>
-            <form action="#" method="POST" class="space-y-6" id="contactForm">
+            <div id="contactFormAlert"
+              class="hidden mb-6 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-rose-700 shadow-sm"
+              role="alert" aria-live="polite"></div>
+
+            <form action="#" method="POST" class="space-y-6" id="contactForm" novalidate>
               <!-- FormSubmit Configuration -->
               <input type="hidden" name="_subject" value="New Contact Inquiry - Pearl Stone Agency" />
               <input type="hidden" name="_template" value="table" />
               <input type="hidden" name="_captcha" value="false" />
 
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
+                <div class="space-y-2">
                   <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
                   <input type="text" id="firstName" name="First Name"
-                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors outline-none"
+                    class="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all outline-none shadow-sm"
                     placeholder="John" required />
+                  <p id="firstNameError" class="hidden text-sm font-medium text-rose-600 flex items-start gap-2"><i class="fa-solid fa-circle-exclamation mt-1"></i><span></span></p>
                 </div>
-                <div>
+                <div class="space-y-2">
                   <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
                   <input type="text" id="lastName" name="Last Name"
-                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors outline-none"
+                    class="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all outline-none shadow-sm"
                     placeholder="Doe" />
+                  <p id="lastNameError" class="hidden text-sm font-medium text-rose-600 flex items-start gap-2"><i class="fa-solid fa-circle-exclamation mt-1"></i><span></span></p>
                 </div>
               </div>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
+                <div class="space-y-2">
                   <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
                   <input type="email" id="email" name="Email Address"
-                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors outline-none"
+                    class="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all outline-none shadow-sm"
                     placeholder="john@example.com" required />
+                  <p id="emailError" class="hidden text-sm font-medium text-rose-600 flex items-start gap-2"><i class="fa-solid fa-circle-exclamation mt-1"></i><span></span></p>
                 </div>
-                <div>
+                <div class="space-y-2">
                   <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
                   <input type="tel" id="phone" name="Phone Number"
-                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors outline-none"
+                    class="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all outline-none shadow-sm"
                     placeholder="+94 77 xxx xxxx" required />
+                  <p id="phoneError" class="hidden text-sm font-medium text-rose-600 flex items-start gap-2"><i class="fa-solid fa-circle-exclamation mt-1"></i><span></span></p>
                 </div>
               </div>
-              <div>
+              <div class="space-y-2">
                 <label for="sector" class="block text-sm font-medium text-gray-700 mb-2">Interested Sector</label>
                 <select id="sector" name="Interested Sector"
-                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors outline-none bg-white">
+                  class="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all outline-none shadow-sm"
+                  required>
                   <option value="" disabled selected>Select a sector</option>
                   <option value="caregiver">Caregiving</option>
                   <option value="agriculture">Agriculture</option>
@@ -247,14 +256,17 @@
                   <option value="renovation">Renovation & Maintenance</option>
                   <option value="other">Other Inquiry</option>
                 </select>
+                <p id="sectorError" class="hidden text-sm font-medium text-rose-600 flex items-start gap-2"><i class="fa-solid fa-circle-exclamation mt-1"></i><span></span></p>
               </div>
-              <div>
+              <div class="space-y-2">
                 <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
                 <textarea id="message" name="Message" rows="4"
-                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors outline-none resize-none"
+                  class="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all outline-none resize-none shadow-sm"
+                  minlength="10"
                   placeholder="How can we help you?" required></textarea>
+                <p id="messageError" class="hidden text-sm font-medium text-rose-600 flex items-start gap-2"><i class="fa-solid fa-circle-exclamation mt-1"></i><span></span></p>
               </div>
-              <button type="button" onclick="submitForm()"
+              <button type="submit"
                 class="w-full bg-brand-600 hover:bg-brand-500 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
                 Send Message
               </button>
@@ -298,28 +310,184 @@
     </div>
   </footer>
 
+  <script src="sendMessage.js"></script>
   <script src="app.js"></script>
   <script>
-    function submitForm() {
-      const form = document.getElementById("contactForm");
+    const contactForm = document.getElementById("contactForm");
+    const formAlert = document.getElementById("contactFormAlert");
+    const submitButton = contactForm.querySelector('button[type="submit"]');
 
-      // Check HTML5 validation first
-      if (!form.checkValidity()) {
-        form.reportValidity();
+    const validationRules = {
+      firstName: {
+        errorId: "firstNameError",
+        message: "Please enter your first name.",
+      },
+      email: {
+        errorId: "emailError",
+        message: "Please enter a valid email address.",
+      },
+      phone: {
+        errorId: "phoneError",
+        message: "Please enter a valid phone number with at least 10 digits.",
+      },
+      sector: {
+        errorId: "sectorError",
+        message: "Please choose the sector you are interested in.",
+      },
+      message: {
+        errorId: "messageError",
+        message: "Please type a message with at least 10 characters.",
+      },
+    };
+
+    function setFieldError(field, message) {
+      const rule = validationRules[field.id];
+      const errorElement = document.getElementById(rule.errorId);
+
+      field.classList.add("border-rose-500", "ring-2", "ring-rose-100", "bg-rose-50");
+      field.classList.remove("border-gray-300");
+
+      if (errorElement) {
+        errorElement.classList.remove("hidden");
+        errorElement.querySelector("span").textContent = message;
+      }
+    }
+
+    function clearFieldError(field) {
+      const rule = validationRules[field.id];
+      const errorElement = document.getElementById(rule.errorId);
+
+      field.classList.remove("border-rose-500", "ring-2", "ring-rose-100", "bg-rose-50");
+      field.classList.add("border-gray-300");
+
+      if (errorElement) {
+        errorElement.classList.add("hidden");
+        errorElement.querySelector("span").textContent = "";
+      }
+    }
+
+    function validateField(field) {
+      const value = field.value.trim();
+
+      if (field.id === "firstName") {
+        return value.length > 0 ? "" : validationRules.firstName.message;
+      }
+
+      if (field.id === "email") {
+        return field.validity.valid && value.length > 0 ? "" : validationRules.email.message;
+      }
+
+      if (field.id === "phone") {
+        const phoneDigits = value.replace(/\D/g, "");
+        return phoneDigits.length >= 10 ? "" : validationRules.phone.message;
+      }
+
+      if (field.id === "sector") {
+        return value.length > 0 ? "" : validationRules.sector.message;
+      }
+
+      if (field.id === "message") {
+        return value.length >= 10 ? "" : validationRules.message.message;
+      }
+
+      return "";
+    }
+
+    function validateContactForm() {
+      const fields = [
+        document.getElementById("firstName"),
+        document.getElementById("email"),
+        document.getElementById("phone"),
+        document.getElementById("sector"),
+        document.getElementById("message"),
+      ];
+
+      let isValid = true;
+      let firstInvalidField = null;
+      const summaryMessages = [];
+
+      fields.forEach((field) => {
+        const errorMessage = validateField(field);
+
+        if (errorMessage) {
+          isValid = false;
+          summaryMessages.push(errorMessage);
+          setFieldError(field, errorMessage);
+          if (!firstInvalidField) {
+            firstInvalidField = field;
+          }
+        } else {
+          clearFieldError(field);
+        }
+      });
+
+      if (!isValid) {
+        formAlert.innerHTML = `
+          <div class="flex items-start gap-3">
+            <div class="mt-0.5 flex h-8 w-8 items-center justify-center rounded-full bg-rose-100 text-rose-600">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-rose-800">Please fix the highlighted fields.</p>
+              <ul class="mt-1 list-disc space-y-1 pl-5 text-sm text-rose-700">
+                ${summaryMessages.map((message) => `<li>${message}</li>`).join("")}
+              </ul>
+            </div>
+          </div>
+        `;
+        formAlert.classList.remove("hidden");
+        firstInvalidField.focus();
+        return false;
+      }
+
+      formAlert.classList.add("hidden");
+      formAlert.innerHTML = "";
+      return true;
+    }
+
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (!validateContactForm()) {
         return;
       }
 
-      const btn = document.querySelector('button[type="button"]');
-      const originalText = btn.innerHTML;
-      btn.innerHTML =
-        'Sended <i class="fa-solid fa-circle-check" style="color: rgb(28, 209, 78);"></i>';
-      btn.disabled = true;
-      btn.classList.add("opacity-75", "cursor-not-allowed");
+      submitButton.disabled = true;
+      submitButton.classList.add("opacity-75", "cursor-not-allowed");
+      submitButton.innerHTML = 'Opening WhatsApp <i class="fa-solid fa-circle-check text-green-300"></i>';
 
-      const formData = new FormData(form);
-
+      const formData = new FormData(contactForm);
       sendWhatsApp(formData);
-    }
+
+      setTimeout(() => {
+        submitButton.disabled = false;
+        submitButton.classList.remove("opacity-75", "cursor-not-allowed");
+        submitButton.innerHTML = 'Send Message';
+        contactForm.reset();
+      }, 1500);
+    });
+
+    ["firstName", "email", "phone", "sector", "message"].forEach((fieldId) => {
+      const field = document.getElementById(fieldId);
+
+      field.addEventListener("input", () => {
+        const errorMessage = validateField(field);
+        if (!errorMessage) {
+          clearFieldError(field);
+          if ([...contactForm.elements].every((element) => !validationRules[element.id] || !validateField(element))) {
+            formAlert.classList.add("hidden");
+            formAlert.innerHTML = "";
+          }
+        }
+      });
+
+      field.addEventListener("blur", () => {
+        const errorMessage = validateField(field);
+        if (errorMessage) {
+          setFieldError(field, errorMessage);
+        }
+      });
+    });
     
     function sendWhatsApp(formData) {
       const phone = "94769049233"; // Sri Lanka number (no +)
