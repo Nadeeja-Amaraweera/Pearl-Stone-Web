@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Us - Pearl Stone Agency</title>
+  <link rel="icon" type="image/png" href="icon.png" />
   <meta name="description"
     content="Contact Pearl Stone Agency for any inquiries regarding foreign employment in Israel." />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -35,6 +36,14 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Open Graph Tags for WhatsApp Thumbnail -->
+  <meta property="og:title" content="Pearl Stone - Foreign Employment Agency">
+  <meta property="og:description" content="Your trusted partner for securing high-quality employment opportunities in Israel.">
+  <meta property="og:image" content="https://ggnuldkuiuvbmowmygnf.supabase.co/storage/v1/object/public/images/1777836648508_logo.png">
+  <meta property="og:url" content="https://github.com/Nadeeja-Amaraweera/Pearl-Stone-Web">
+  <meta property="og:type" content="website">
+
   <style>
     .glass-effect {
       background: rgba(15, 23, 42, 0.85);
@@ -162,10 +171,10 @@
               <div>
                 <h4 class="font-bold text-lg mb-1">Phone</h4>
                 <p class="text-blue-100 text-sm mb-1">
-                  011 363 3666 (Hotline)
+                  +94 11 363 3666 (Hotline)
                 </p>
                 <p class="text-blue-100 text-sm">
-                  +94 071 763 3666 (WhatsApp)
+                  +94 71 763 3666 (WhatsApp)
                 </p>
               </div>
             </div>
@@ -175,7 +184,7 @@
               </div>
               <div>
                 <h4 class="font-bold text-lg mb-1">Email</h4>
-                <p class="text-blue-100 text-sm">Pearlstonefea@gmail.com</p>
+                <p class="text-blue-100 text-sm">pearlstonefea@gmail.com</p>
               </div>
             </div>
           </div>
@@ -272,12 +281,15 @@
           class="h-20 md:h-24 lg:h-28 w-auto transform transition duration-300 hover:scale-105 drop-shadow-[0_0_20px_rgba(255,255,255,1)] drop-shadow-[0_0_40px_rgba(255,255,255,0.6)]" />
       </div>
       <div class="flex justify-center space-x-4 mb-6">
-        <a href="#"
+        <a href="https://www.facebook.com/share/18fo9nfQMi/" target="_blank"
           class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-500 hover:text-white transition-colors"><i
             class="fab fa-facebook-f"></i></a>
-        <a href="#"
+        <a href="https://wa.me/94769049233" target="_blank"
           class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-500 hover:text-white transition-colors"><i
             class="fab fa-whatsapp"></i></a>
+        <a href="#"
+          class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-500 hover:text-white transition-colors"><i
+              class="fab fa-instagram"></i></a>
       </div>
       <p class="text-sm">
         &copy; 2026 Pearl Stone Foreign Employment Agency. All rights
@@ -308,17 +320,23 @@
 
       sendWhatsApp(formData);
     }
+    
     function sendWhatsApp(formData) {
       const phone = "94769049233"; // Sri Lanka number (no +)
-      const message = `New Contact Inquiry from\n\nName: ${formData.get("First Name")}Last name: ${formData.get(
-        "Last Name"
+
+      // Put this to automatically get the link to the site
+      const siteUrl = window.location.href;
+
+      // At the end of the message \n\nSite Link: ${siteUrl} has been added
+      const message = `New Contact Inquiry from\n\nName: ${formData.get("First Name")} ${formData.get(
+      "Last Name"
       )}\nEmail: ${formData.get("Email Address")}\nPhone: ${formData.get(
-        "Phone Number"
+      "Phone Number"
       )}\nSector: ${formData.get("Interested Sector")}\nMessage: ${formData.get("Message")
-        }`;
+      }\nSite Link: ${siteUrl}`;
 
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-      window.open(url, "_blank");
+      window.open(url, "_blank"); 
     }
   </script>
 </body>
