@@ -2,7 +2,7 @@ const whatsappPhoneNumber = '94764823793';
 const defaultWhatsAppMessage = 'Hello! I would like to know more about your job opportunities.';
 const previewPageUrl = window.location.href.startsWith('http')
     ? window.location.href
-    : 'https://nadeeja-amaraweera.github.io/Pearl-Stone-Web/';
+    : 'https://pearlstone.lk/';
 
 const widgetStyle = document.createElement('style');
 widgetStyle.textContent = `
