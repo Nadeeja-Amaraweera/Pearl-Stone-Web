@@ -1,3 +1,17 @@
+********Summury of this Page*******
+
+1> Schema Markup කෝඩ් දාන එක: සයිට් එකේ ලොකුම අඩුව විදියට තියෙන්නේ මේකයි. Google එකට බිස්නස් එක ගැන තේරුම් ගන්න පුළුවන් වෙන්න අර JSON කෝඩ් කෑලි ටික (Organization, LocalBusiness) index.html එකට දාන්න ඕන.
+
+2> Meta Descriptions අප්ඩේට් කරන එක: හැම පේජ් එකේම තියෙන පරණ descriptions අයින් කරලා, අර රිපෝට් එකේ දීලා තියෙන අලුත් SEO descriptions ටික දාන්න ඕන. ඒකෙන් සයිට් එකට එන සෙනඟ (CTR) 10% කින් විතර වැඩි කරගන්න පුළුවන්.
+
+3> FAQ (නිතර අහන ප්‍රශ්න) පේජ් එකක් හදන එක: කස්ටමර්ස්ලා අහන්න පුළුවන් ප්‍රශ්න 30ක් විතර එකතු කරලා අලුත් පේජ් එකක් හදන්න කියලා තියෙනවා.
+
+4> Headings (H1, H2) පිළිවෙලකට හදන එක: පේජ් වල මාතෘකා ටික Google එකට කියවගන්න ලේසි වෙන්න රිපෝට් එකේ තියෙන විදියටම හදන්න ඕන.
+
+5> Sitemap එක හදන එක සහ Google My Business එක හදන එක: සයිට් එකේ ෆයිල් ගැන විස්තර තියෙන sitemap.xml එකක් හදලා, Google මැප් එකේ බිස්නස් එක ලියාපදිංචි කරන්න ඕන.
+
+
+
 # PEARL STONE FOREIGN EMPLOYMENT AGENCY
 ## Complete SEO Analysis & Optimization Package
 **Report Date:** May 12, 2026  
