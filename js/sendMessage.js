@@ -1,4 +1,4 @@
-const whatsappPhoneNumber = '94764823793';
+const whatsappPhoneNumber = '+94717633666';
 const defaultWhatsAppMessage = 'Hello! I would like to know more about your job opportunities.';
 const previewPageUrl = window.location.href.startsWith('http')
     ? window.location.href
@@ -12,6 +12,7 @@ widgetStyle.textContent = `
         bottom: 1.5rem;
         z-index: 60;
         display: flex;
+        flex-direction: column;
         align-items: flex-end;
         gap: 0.75rem;
     }
@@ -26,16 +27,25 @@ widgetStyle.textContent = `
         letter-spacing: 0.01em;
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
         opacity: 0;
-        transform: translateX(8px) scale(0.98);
+        position: absolute;
+        right: 4.2rem;
+        bottom: 50%;
+        transform: translateY(50%) translateX(-8px) scale(0.98);
         transition: opacity 180ms ease, transform 180ms ease;
         pointer-events: none;
         white-space: nowrap;
     }
 
-    .whatsapp-widget:hover .whatsapp-tooltip,
-    .whatsapp-widget:focus-within .whatsapp-tooltip {
+    .faq-button:hover + .faq-tooltip,
+    .faq-button:focus + .faq-tooltip {
         opacity: 1;
-        transform: translateX(0) scale(1);
+        transform: translateY(-25%) scale(1);
+    }
+
+    .whatsapp-button:hover + .whatsapp-tooltip,
+    .whatsapp-button:focus + .whatsapp-tooltip {
+        opacity: 1;
+        transform: translateY(130%) scale(1);
     }
 
     .whatsapp-button {
@@ -52,6 +62,47 @@ widgetStyle.textContent = `
         cursor: pointer;
         transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
         position: relative;
+    }
+
+    .faq-button {
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: #172554;
+        color: #fff;
+        box-shadow: 0 12px 28px rgba(23,37,84,0.35);
+        border: 0;
+        cursor: pointer;
+        transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+        position: relative;
+    }
+
+    .faq-button:hover {
+        transform: translateY(-2px) scale(1.04);
+        box-shadow: 0 18px 36px rgba(23,37,84,0.45);
+        filter: brightness(1.02);
+    }
+
+    .faq-tooltip {
+        background: rgba(15, 23, 42, 0.96);
+        color: #fff;
+        padding: 0.7rem 0.95rem;
+        border-radius: 999px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+        opacity: 0;
+        position: absolute;
+        right: 4.2rem;
+        bottom: 50%;
+        transform: translateY(50%) translateX(-8px) scale(0.98);
+        transition: opacity 180ms ease, transform 180ms ease;
+        pointer-events: none;
+        white-space: nowrap;
     }
 
     .whatsapp-button:hover {
@@ -185,10 +236,6 @@ widgetStyle.textContent = `
             bottom: 1rem;
         }
 
-        .whatsapp-tooltip {
-            display: none;
-        }
-
         .whatsapp-panel {
             right: 1rem;
             bottom: 5.25rem;
@@ -262,8 +309,25 @@ panelBody.appendChild(actionRow);
 whatsappPanel.appendChild(panelHeader);
 whatsappPanel.appendChild(panelBody);
 
-whatsappWidget.appendChild(whatsappTooltip);
+// FAQ button (opens local FAQ page)
+const faqButton = document.createElement('button');
+faqButton.type = 'button';
+faqButton.className = 'faq-button';
+faqButton.setAttribute('aria-label', 'FAQ');
+faqButton.title = 'FAQ';
+faqButton.innerHTML = '<i class="fas fa-question" aria-hidden="true"></i>';
+faqButton.addEventListener('click', () => {
+    window.location.href = 'faq.html';
+});
+
+const faqTooltip = document.createElement('span');
+faqTooltip.className = 'faq-tooltip';
+faqTooltip.textContent = 'FAQ';
+
+whatsappWidget.appendChild(faqButton);
+whatsappWidget.appendChild(faqTooltip);
 whatsappWidget.appendChild(whatsappButton);
+whatsappWidget.appendChild(whatsappTooltip);
 
 document.body.appendChild(whatsappPanel);
 document.body.appendChild(whatsappWidget);
