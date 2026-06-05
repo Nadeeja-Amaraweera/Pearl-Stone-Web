@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Pearl Stone Foreign Employment Agency robots.txt
 # Production domain: https://pearlstone.lk/
 
@@ -12,4 +13,20 @@ Disallow: /admin/
 Disallow: /*.json$
 
 # Sitemap reference for pearlstone.lk
+=======
+# Pearl Stone Foreign Employment Agency robots.txt
+# Production domain: https://pearlstone.lk/
+
+User-agent: *
+Allow: /
+
+# Block sensitive folders and generated assets that should not be indexed
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /secret/
+Disallow: /admin/
+Disallow: /*.json$
+
+# Sitemap reference for pearlstone.lk
+>>>>>>> bf04e4ec7f01b0ad0121816b754fb40d61266d09
 Sitemap: https://pearlstone.lk/sitemap.xml

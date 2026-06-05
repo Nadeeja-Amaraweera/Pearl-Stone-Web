@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .fade-section {
     opacity: 0;
     transform: translateY(40px);
@@ -27,4 +28,35 @@
 .fade-right.show {
     opacity: 1;
     transform: translateX(0);
+=======
+.fade-section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1.5s ease;
+}
+
+.fade-section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: all 1.5s ease;
+}
+.fade-left.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: all 1.5s ease;
+}
+.fade-right.show {
+    opacity: 1;
+    transform: translateX(0);
+>>>>>>> bf04e4ec7f01b0ad0121816b754fb40d61266d09
 }
